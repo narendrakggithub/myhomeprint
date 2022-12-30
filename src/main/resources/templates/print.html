@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>Submit Print</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Print Request</h1>
+    <form action="#" th:action="@{/print}" th:object="${printSetting}" method="post">
+    	<table>
+    		<tbody>
+    			<tr>
+    				<td>page numbers(1, 1-5, 1,2,3):</td>
+    				<td><input type="text" th:field="*{pageNumbers}" /></td>
+    			</tr>
+    			<tr>
+    				<td>Both Side: </td>
+    				<td><input type="checkbox" th:field="*{bothSide}"></td>
+    			</tr>
+    			<tr>
+    				<td>Landscape: </td>
+    				<td><input type="checkbox" th:field="*{landscape}"></td>
+    			</tr>
+    			<tr>
+    				<td>Color: </td>
+    				<td><input type="checkbox" th:field="*{isColor}" checked></td>
+    			</tr>
+    			<tr>
+    				<td>page numbers(1/2/4):</td>
+    				<td><input type="text" th:field="*{pagesPerSheet}" /></td>
+    			</tr>
+    			<tr>
+    				<td>Password: </td>
+    				<td><input type="text" th:field="*{message}" /></td>
+    			</tr>
+    			<tr>
+    				<td> </td>
+    				<td><input type="submit" value="Submit" /> </td>
+    			</tr>
+    		</tbody>
+    	</table>
+    </form>
+</body>
+</html>

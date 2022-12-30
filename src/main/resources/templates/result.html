@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Result</h1>
+    <p th:text="'Page Numbers: ' + ${printSetting.pageNumbers}" />
+    <p th:text="'Both Side?: ' + ${printSetting.bothSide}" />
+    <p th:text="'Landscape?: ' + ${printSetting.landscape}" />
+    <p th:text="'Pages per sheet: ' + ${printSetting.pagesPerSheet}" />
+    <p th:text="'Color?: ' + ${printSetting.isColor}" />
+    <p th:text="'Message: ' + ${printSetting.message}" />
+    
+    
+    <a href="/print">Submit another message</a>
+</body>
+</html>
