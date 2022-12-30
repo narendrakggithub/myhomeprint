@@ -7,7 +7,12 @@ import org.springframework.web.bind.annotation.*;
 public class PrintController {
 
 	@GetMapping("/hello")
-	public String health() {
+	public String hello() {
+		return "Hello World";
+	}
+	
+	@GetMapping("/print")
+	public String print() {
 		return "Hello World";
 	}
 }
