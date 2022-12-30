@@ -1,6 +1,7 @@
 package com.narenkg.myhomeprint.controllers;
 
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.narenkg.myhomeprint.modal.PrinterSetting;
 
@@ -16,19 +17,21 @@ public class PrintController {
 	ArrayList<PrinterSetting> printerSettings = new ArrayList<PrinterSetting>();
 
 	@GetMapping("/hello")
-	public String hello() {
-		return "Hello World";
+	public ModelAndView hello() {
+		System.out.println("hello");
+		ModelAndView mv = new ModelAndView("hello");
+	    return mv;
 	}
 
 	@RequestMapping("/print")
 	public String greetingForm(Model model) {
 		PrinterSetting settings = new PrinterSetting();
-		settings.setPageNumbers("1-2");
+		settings.setPageNumbers("All");
 		settings.setBothSide(true);
 		settings.setIsColor(false);
 		settings.setLandscape(true);
 		settings.setPagesPerSheet(1);
-		settings.setMessage("India@123");
+		settings.setMessage("");
 		model.addAttribute("printSetting", settings);
 		return "print";
 	}
@@ -55,7 +58,7 @@ public class PrintController {
 			output = output + setting.getPageNumbers() + ";" + setting.getBothSide() + ";" + setting.getIsColor() + ";"
 					+ setting.getLandscape() + ";" + setting.getPagesPerSheet() + ";;;";
 		}
-		//printerSettings.clear();
+		printerSettings.clear();
 		model.addAttribute("message", output);
 		return "printpages";
 	}
